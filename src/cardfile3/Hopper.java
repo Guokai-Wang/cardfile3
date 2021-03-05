@@ -17,7 +17,7 @@ public class Hopper
 	
 	public void convertCloud(String inFileName)
 	{
-		CloudConverter converter = new CloudConverter("fiM9k9Ge1YTIVCtKW69thWDcWAzqBql5Jifsklg99KPDnPnQSy3zDHZeFi8aWRu6");
+		CloudConverter converter = new CloudConverter("API-key v1 here");
 		File inFile = new File(uFilePath() + inFileName);
 		FileLogic fLogic = new FileLogic(inFileName);
 		HashMap<String, String> options;
