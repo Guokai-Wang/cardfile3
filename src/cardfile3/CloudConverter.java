@@ -46,7 +46,8 @@ public class CloudConverter
             waitLoop: while (true) 
             {
             	status = process.getStatus();
-                status.converter.options = inOptions;
+            	if(inOptions != null && inOptions.size() > 0)
+            		status.converter.options = inOptions;
     
             	switch (status.step) 
             	{

@@ -17,7 +17,7 @@ public class Hopper
 	
 	public void convertCloud(String inFileName)
 	{
-		CloudConverter converter = new CloudConverter("API key here");
+		CloudConverter converter = new CloudConverter("fiM9k9Ge1YTIVCtKW69thWDcWAzqBql5Jifsklg99KPDnPnQSy3zDHZeFi8aWRu6");
 		File inFile = new File(uFilePath() + inFileName);
 		FileLogic fLogic = new FileLogic(inFileName);
 		HashMap<String, String> options;
@@ -46,9 +46,13 @@ public class Hopper
 					outputExtension = element.getExtension();
 					outputFileName = "o" + fLogic.getFileName() + outputExtension;
 					options = new HashMap<String, String>();
-					options.put("audio_codec", element.getAudioCodec());
+					if(element.getAudioCodec() != null)
+					{
+						options.put("audio_codec", element.getAudioCodec());
+					}
 					if(element.getVideoCodec() != null)
 					{
+						options.put("video_resolution", "960x720");
 						options.put("video_codec", element.getVideoCodec());
 					}
 					System.out.println("converter():starting:" + inFileName);

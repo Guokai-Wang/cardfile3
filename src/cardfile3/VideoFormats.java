@@ -47,14 +47,20 @@ public class VideoFormats {
         }).collect(Collectors.toList());
     }
 
-    private static void populate() {
+    private static void populate() 
+    {
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
         // https://wiki.xiph.org/index.php?title=MIME_Types_and_File_Extensions&mobileaction=toggle_view_desktop
-
+    	MediaFormat mf;
         // List of formats which we generate to be able to deliver to the webbrowsers
         // MediaFormat mf = new MediaFormat("H264_AAC", ".mp4", "video/mp4", true, "(.)*avc1(.)*", "(.)*aac(.)*",  true, "h264", "aac");
-        MediaFormat mf = new MediaFormat("H264_AAC", ".mp4", "video/mp4", true, "(.)*avc1(.)*", "(.)*aac(.)*",  true, "x264", "aac");
+        mf = new MediaFormat("H264_AAC", ".mp4", "video/mp4", true, "(.)*avc1(.)*", "(.)*aac(.)*",  true, "x264", "aac");
         addCompatibleBrowsersH264AAC(mf);
+        videoFormats.add(mf);
+
+        // mf = new MediaFormat("Theora_Vorbis", ".ogv", "video/ogg", true, "(.)*theora(.)*", "(.)*vorbis(.)*", true, "vp9", "vorbis");
+        mf = new MediaFormat("Theora_Vorbis", ".ogg", "video/ogg", true, "(.)*theora(.)*", "(.)*vorbis(.)*", true, "vp9", "vorbis");
+        addCompatibleBrowsersOGV(mf);
         videoFormats.add(mf);
 
         // mf = new MediaFormat("VP8_Vorbis", ".webm", "video/webm; codecs=\"vp8\"", true, "(.)*vp8(.)*", "(.)*vorbis(.)*", true, "libvpx", "libvorbis");
